@@ -1,6 +1,10 @@
-# Web_Technology [Laboratory Works]
-In this repository you will find my laboratory works for [ Web_Technology ] course .
+# Laboratories Repository
+## Personal Information
+Student: Bantuș Vladislav
 
-> First Name : Bantus
-> Last name : Vladislav
-> Group : FAF - 161 
+Group: FAF-161
+
+GitHub nickname: Vladdd97
+
+## Contained courses
+Web Technology
