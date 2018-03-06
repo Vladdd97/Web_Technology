@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Cartoons";
+}
+
+
+@Html.Partial("_Carousel")
+
+
+
+<!-- content container -->
+<div class="container-fluid" id="content">
+
+    <div class="row my-2">
+        <div class="col-10 p-1 offset-1 categories">
+            <div class="d-flex flex-wrap justify-content-around">
+                <div class="item m-1 p-2">For Children</div>
+                <div class="item m-1 p-2">For all ages</div>
+            </div>
+        </div>
+    </div><!-- row -->
+    <!-- row -->
+    <div class="row text-center">
+
+        @for (int i = 0; i < 6; i++)
+        {<div class="col-lg-4 col-sm-6 col-xs-12 mb-2 px-2">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="~/Content/images/monsters.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title p-1"> Monsters vs Aliens</h4>
+                        <p class="card-text p-1">
+                            After Susan Murphy is struck by a meteor and grows to be 50 feet tall,
+                            she's captured by the government and shuttled to a secret compound.
+                        </p>
+                        <a href="#" class="btn btn-info float-right m-1">See Details</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+    </div>
+    <!-- row -->
+
+</div>
+<!-- /content container -->

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Movies";
+}
+
+
+
+
+
+@{
+    ViewBag.Title = "Home";
+}
+
+@Html.Partial("_Carousel")
+<!-- content container -->
+<div class="container-fluid" id="content">
+    <!-- row -->
+    <div class="row my-2">
+        <div class="col-10 p-1 offset-1 categories">
+            <div class="d-flex flex-wrap justify-content-around">
+                <div class="item m-1">Comedy</div>
+                <div class="item m-1">Actions</div>
+                <div class="item m-1">Detective</div>
+                <div class="item m-1">Drama</div>
+                <div class="item m-1">Historical</div>
+                <div class="item m-1">Horrors</div>
+            </div>
+        </div>
+    </div><!-- row -->
+    <!-- row -->
+    <div class="row text-center">
+
+        @for (int i = 0; i < 6; i++)
+        {
+            <div class="col-lg-4 col-sm-6 col-xs-12 mb-2 px-2">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="~/Content/images/hangOver.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title p-1">Hang Over</h4>
+                        <p class="card-text p-1">
+                            When one of their own is kidnapped by an angry gangster, the Wolf Pack must
+                            track down Mr. Chow, who has escaped from prison and is on the run.
+                        </p>
+                        <a href="#" class="btn btn-info float-right m-1">See Details</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div><!-- row -->
+
+</div>
+<!-- /content container -->

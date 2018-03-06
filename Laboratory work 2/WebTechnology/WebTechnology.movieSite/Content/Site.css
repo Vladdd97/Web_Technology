@@ -1,0 +1,52 @@
+﻿
+/* My style */
+body {
+    background: rgba(0,0,0,0.14);
+}
+
+#content {
+    min-height: 100vh;
+}
+
+.logoImg {
+    width: 30px;
+    margin-bottom: 3px;
+}
+
+footer > div > div > div > a > .logoImg {
+    width: 100px;
+    margin-bottom: 3px;
+}
+
+.active {
+    border-bottom: silver 2px solid;
+}
+
+.carouselImg {
+    width: 100%;
+    height: 400px;
+}
+
+footer {
+    color: white;
+}
+
+.item {
+    background: #ffbd16;
+    color: white;
+    text-align: center;
+    width: 150px;
+}
+
+    .item:hover {
+        background: #ff9a16;
+        cursor: pointer;
+    }
+
+.card-img-top {
+    height: 300px;
+}
+
+.categories {
+    background: rgba(0,0,0,0.9);
+}
