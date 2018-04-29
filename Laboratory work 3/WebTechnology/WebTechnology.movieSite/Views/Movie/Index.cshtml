@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BusinessLogic.DbModels.Movie>
+@{
+    ViewBag.Title = "Movies";
+}
+
+@Html.Partial("_Carousel")
+<!-- content container -->
+<div class="container-fluid" id="content">
+    <!-- row -->
+    <div class="row my-2">
+        <div class="col-10 p-1 offset-1 categories">
+            <div class="d-flex flex-wrap justify-content-around">
+                @Html.ActionLink("Comedy", "Genre", "Movie", new { genre = "Comedy" }, new { @class = "btn btn-warning m-1 " })
+                @Html.ActionLink("Action", "Genre", "Movie", new { genre = "Action" }, new { @class = "btn btn-warning m-1 " })
+                @Html.ActionLink("Adventure", "Genre", "Movie", new { genre = "Adventure" }, new { @class = "btn btn-warning m-1 " })
+
+                @Html.ActionLink("Drama", "Genre", "Movie", new { genre = "Drama" }, new { @class = "btn btn-warning m-1 " })
+                @Html.ActionLink("Crime", "Genre", "Movie", new { genre = "Crime" }, new { @class = "btn btn-warning m-1 " })
+
+                @Html.ActionLink("Horror", "Genre", "Movie", new { genre = "Horror" }, new { @class = "btn btn-warning m-1 " })
+                @Html.ActionLink("Thriller", "Genre", "Movie", new { genre = "Thriller" }, new { @class = "btn btn-warning m-1 " })
+                @Html.ActionLink("Mystery", "Genre", "Movie", new { genre = "Mystery" }, new { @class = "btn btn-warning m-1 " })
+
+                @Html.ActionLink("Show All", "Genre", "Movie", new { genre = "All" }, new { @class = "btn btn-warning m-1 " })
+
+            </div>
+        </div>
+    </div><!-- row -->
+    <!-- row -->
+    <div class="row my-2">
+
+        @foreach (var film in Model)
+        {
+            //var path = @film.PicturePath.Replace("~", "" );
+            <div class="col-lg-4 col-sm-6 col-xs-12 mb-2 px-2">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="@film.PicturePath.Replace("~", "" )" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title p-1">@film.Title</h4>
+                        <p class="card-text p-1">
+                            Genre: @film.Genre1,@film.Genre2,@film.Genre3
+                            <br />
+                            Country: @film.Country.CountryName
+                            <br />
+                            Language: @film.Language.LanguageName
+                            <br />
+                            Director: @film.Director.Name @film.Director.Surname
+                            <br />
+                            Realese Date: @film.RealeseDate
+                            <br />
+                            Raiting: @film.Raiting
+                            <br />
+                        </p>
+                        @Html.ActionLink("View Details", "Details", "Movie", film, new { @class = "btn btn-info float-right m-1" })
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div><!-- row -->
+
+</div>
+<!-- /content container -->
