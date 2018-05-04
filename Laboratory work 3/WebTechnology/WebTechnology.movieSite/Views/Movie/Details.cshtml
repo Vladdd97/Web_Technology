@@ -41,7 +41,17 @@
     <div class="row mb-5">
         <div class="col-8 offset-2">
             <h1>@Model.Title Film</h1>
-            <img class="img-fluid" src="@Model.MoviePath.Replace("~", "")" alt="@Model.Title">
+            @if (Model.MoviePath.Contains("~"))
+            {
+                <img class="img-fluid" src="@Model.MoviePath.Replace("~", "")" alt="@Model.Title">
+
+            }
+            else
+            {
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="@Model.MoviePath" allowfullscreen></iframe>
+                </div> 
+            }
         </div>
     </div>
 </div>

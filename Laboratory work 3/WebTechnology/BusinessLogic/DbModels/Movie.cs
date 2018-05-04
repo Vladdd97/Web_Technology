@@ -15,11 +15,11 @@ namespace BusinessLogic.DbModels
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Something has gone wrong !")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Title of the movie is required !")]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Something has gone wrong !")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "PicturePath is required !")]
         public string PicturePath { get; set; }
 
         [Required(ErrorMessage = "Something is wrong with Duration")]

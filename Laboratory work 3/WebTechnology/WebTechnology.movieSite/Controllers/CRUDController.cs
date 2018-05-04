@@ -34,6 +34,7 @@ namespace WebTechnology.movieSite.Controllers
             var languages = _db.Languages.ToList();
             var model = new MovieFormViewModel()
             {
+                Movie = new Movie(),
                 Directors = directors,
                 Countries = countries,
                 Languages = languages
@@ -42,8 +43,22 @@ namespace WebTechnology.movieSite.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie )
         {
+            //check if model is valid
+            if (!ModelState.IsValid)
+            {
+                var model = new MovieFormViewModel()
+                {
+                    Movie = movie,
+                    Directors = _db.Directors.ToList(),
+                    Countries = _db.Countries.ToList(),
+                    Languages = _db.Languages.ToList()
+                };
+                return View("MovieForm", model);
+
+            }
             // save
             if (movie.Id == 0)
             {

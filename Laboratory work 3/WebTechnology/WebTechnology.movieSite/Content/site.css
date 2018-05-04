@@ -54,3 +54,11 @@ footer {
 .mediaImgSize {
     height: 300px;
 }
+
+.input-validation-error {
+    border: 3px red solid;
+}
+
+.field-validation-error {
+    color: red;
+}
