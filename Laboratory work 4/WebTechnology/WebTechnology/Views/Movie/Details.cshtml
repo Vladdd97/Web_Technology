@@ -1,0 +1,58 @@
+﻿@model BusinessLogic.DbModels.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@{
+    var statusBar = ((float)@Model.Raiting / 10).ToString() + "%";
+}
+
+<!-- content container -->
+<div class="container-fluid" id="content">
+
+    <!-- Left-aligned media object -->
+    <div class="media my-3">
+        <div class="media-left mr-4">
+            <img src="@Model.PicturePath.Replace("~", "" )" class="media-object mb-1" style="width: 450px; height: 300px">
+            <h5>Raiting: @statusBar</h5>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="1000" style="width: @statusBar">
+                    Raiting : @statusBar
+                </div>
+            </div>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@Model.Title</h4>
+            <p> @Model.Description </p>
+            <p style="font-size: 1.2em; color:brown">
+                Genre: @Model.Genre1,@Model.Genre2,@Model.Genre3
+                <br />
+                Realese Date: @Model.RealeseDate
+                <br />
+                Duration: @Model.Duration min
+                <br />
+                Raiting: @Model.Raiting
+                <br />
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="row mb-5">
+        <div class="col-8 offset-2">
+            <h1>@Model.Title Film</h1>
+            @if (Model.MoviePath.Contains("~"))
+            {
+                <img class="img-fluid" src="@Model.MoviePath.Replace("~", "")" alt="@Model.Title">
+
+            }
+            else
+            {
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="@Model.MoviePath" allowfullscreen></iframe>
+                </div> 
+            }
+        </div>
+    </div>
+</div>
+<!-- /content container -->

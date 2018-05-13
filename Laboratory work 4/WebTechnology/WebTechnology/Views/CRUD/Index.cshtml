@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<div style="color:crimson">
+    <h1>You are in Admin Mode ...</h1>
+</div>
+
+<hr/>
+
+<div>
+    <h4>
+        Manage data using navbar for choosing what you wanna do, after that just press
+        @Html.ActionLink("BackToMovies", "Index", "Home", null, new { @class = "btn btn-link btn-lg" })
+        and you will exit Admin Mode
+    </h4>
+</div>

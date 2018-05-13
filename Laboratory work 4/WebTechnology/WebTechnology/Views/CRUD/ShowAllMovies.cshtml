@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BusinessLogic.DbModels.Movie>
+
+@{
+    ViewBag.Title = "ShowAllMovies";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="col-10 offset-1">
+    <br/>
+    <h2>Choose Movie you wanna edit & delete</h2>
+    <hr/>
+    <table class="table table-inverse table-hover my-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Realese Date</th>
+                <th>Raiting</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var film in Model)
+        {
+            <tr>
+                <td> @film.Id </td>
+                <td> @film.Title </td>    
+                <td> @film.RealeseDate </td>
+                <td> @film.Raiting </td>
+                <td> @Html.ActionLink("Edit", "Update", "CRUD", film, new {@class = "btn btn-primary"})</td>
+                <td> @Html.ActionLink("Delete", "Delete", "CRUD", film, new {@class = "btn btn-danger"})</td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>

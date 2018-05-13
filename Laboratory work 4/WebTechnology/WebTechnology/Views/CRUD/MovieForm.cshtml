@@ -1,0 +1,109 @@
+﻿@model BusinessLogic.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = "Save";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@{
+    var actionResult = Model.Movie == null ? "Create" : "Edit";
+}
+
+<div class="col-6 offset-3 my-3">
+    <h2>@actionResult</h2> 
+    <hr/>
+    @using (Html.BeginForm("Save", "CRUD"))
+    {
+        @Html.ValidationSummary()
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Title)
+            @Html.TextBoxFor(m => m.Movie.Title, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Movie.Title)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.PicturePath)
+            @Html.TextBoxFor(m => m.Movie.PicturePath, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.PicturePath)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Duration)
+            @Html.TextBoxFor(m => m.Movie.Duration, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Duration)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.RealeseDate)
+            @Html.TextBoxFor(m => m.Movie.RealeseDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.RealeseDate)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Raiting)
+            @Html.TextBoxFor(m => m.Movie.Raiting, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Raiting)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Description)
+            @Html.TextBoxFor(m => m.Movie.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Description)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Genre1)
+            @Html.TextBoxFor(m => m.Movie.Genre1, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Genre1)
+
+            @Html.LabelFor(m => m.Movie.Genre2)
+            @Html.TextBoxFor(m => m.Movie.Genre2, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Genre2)
+
+            @Html.LabelFor(m => m.Movie.Genre3)
+            @Html.TextBoxFor(m => m.Movie.Genre3, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Genre3)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.MoviePath)
+            @Html.TextBoxFor(m => m.Movie.MoviePath, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.MoviePath)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.DirectorId)
+            @Html.DropDownListFor(m => m.Movie.DirectorId, new SelectList(Model.Directors, "Id", "Name"), "Select Director", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.DirectorId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.CountryId)
+            @Html.DropDownListFor(m => m.Movie.CountryId, new SelectList(Model.Countries, "Id", "CountryName"), "Select Country", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.CountryId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.LanguageId)
+            @Html.DropDownListFor(m => m.Movie.LanguageId, new SelectList(Model.Languages, "Id", "LanguageName"), "Select Language", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.LanguageId)
+        </div>
+
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor( m => m.Movie.Free) Is it Free ?
+            </label>
+        </div>
+
+
+        @Html.HiddenFor(m => m.Movie.Id);
+
+        @Html.AntiForgeryToken()  
+        <button type="submit" class="btn btn-success">Save</button>
+
+    }
+    
+    
+
+</div>
